@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ramadan Mubarak Cards</title>
+  <link rel="stylesheet" href="../bootstrap-5.3.8-dist/css/bootstrap.min.css">
+  <!-- Bootstrap Icons CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <style>
+    .logo {
+      width: 115px;
+      height: 95px;
+      margin-bottom: -18px;
+      margin-top: -18px;
+    }
+
+    .navbar {
+      background-color: #b30000;
+    }
+
+    .navbar-brand {
+      font-size: 28px;
+      font-weight: bold;
+      color: white !important;
+    }
+
+    .navbar-nav .nav-link {
+      color: white !important;
+      font-size: 18px;
+      margin-right: 18px;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #ffe6e6 !important;
+    }
+
+    .dropdown-menu {
+      background-color: #b30000;
+
+      border: none;
+    }
+
+    .dropdown-item {
+      color: white;
+    }
+
+    .dropdown-item:hover {
+      background-color: #ff1a1a;
+      color: white;
+    }
+
+    .search-bar {
+      border-radius: 20px;
+      padding: 5px 15px;
+      border: 1px solid #ccc;
+      outline: none;
+    }
+
+    .search-btn {
+      border-radius: 20px;
+      background-color: white;
+      color: #b30000;
+      border: 2px solid #b30000;
+      margin-left: 8px;
+      padding: 5px 15px;
+      transition: 0.3s;
+    }
+
+    .search-btn:hover {
+      background-color: #b30000;
+      color: white;
+    }
+
+    .navbar-toggler {
+      border: none;
+    }
+
+    #card-page {
+      width: 100%;
+      max-width: 1100px;
+      margin: auto;
+      transition: filter 0.3s ease;
+    }
+
+    #card-page h1 {
+      margin-bottom: 20px;
+      color: #333;
+      font-size: 2.2rem;
+    }
+
+    .card-row {
+      margin-bottom: 50px;
+      position: relative;
+    }
+
+    .carousel-wrapper {
+      overflow: hidden;
+    }
+
+    .card-carousel {
+      display: flex;
+    }
+
+    .card {
+      flex: 0 0 calc(100% / 3 - 20px);
+      margin: 0 10px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      overflow: hidden;
+      background-color: white;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-price {
+      text-align: center;
+      font-weight: bold;
+      padding: 15px;
+      font-size: 1.2em;
+      color: #333;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-calc(50% + 10px));
+      background-color: rgba(255, 255, 255, 0.9);
+      border: none;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      z-index: 10;
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .prev-btn {
+      left: -25px;
+    }
+
+    .next-btn {
+      right: -25px;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      max-width: 450px;
+      width: 90%;
+      transform: scale(0.9);
+      transition: transform 0.3s;
+    }
+
+    .modal-content img {
+      max-width: 100%;
+      max-height: 70vh;
+      width: auto;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .modal-description {
+      margin: 15px 0;
+      font-size: 1.1em;
+      color: #555;
+    }
+
+    .modal-price {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #e91e63;
+      margin-bottom: 20px;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    .input-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1em;
+      font-family: inherit;
+      resize: vertical;
+      box-sizing: border-box;
+    }
+
+    .order-btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.1em;
+      transition: background-color 0.2s;
+    }
+
+    .order-btn:hover {
+      background-color: #45a049;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 2.5em;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* For Tablets (e.g., iPads) */
+    @media (max-width: 992px) {
+      body {
+        padding: 30px 20px;
+      }
+
+      .card {
+        flex: 0 0 calc(100% / 2 - 20px);
+      }
+    }
+
+    /* For Mobile Phones */
+    @media (max-width: 576px) {
+      body {
+        padding: 20px 10px;
+      }
+
+      #card-page h1 {
+        font-size: 1.8rem;
+      }
+
+      .card {
+        flex: 0 0 calc(100% - 20px);
+      }
+
+      .carousel-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 20px;
+      }
+
+      .prev-btn {
+        left: -10px;
+      }
+
+      .next-btn {
+        right: -10px;
+      }
+    }
+
+    .page-header {
+      text-align: center;
+      background: linear-gradient(to bottom, #b3000063, #f8f9fa, #b3000063);
+      width: 100%;
+      height: 150px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      font-size: 35px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #b30000;
+      color: #fff;
+      padding: 50px 20px 20px;
+    }
+
+    footer h5 {
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    footer a {
+      color: #f1f1f1;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    footer a:hover {
+      color: #ffd700;
+    }
+
+    .social-icons a {
+      font-size: 22px;
+      margin: 0 10px 0 0;
+      display: inline-block;
+      transition: transform 0.3s;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+      color: #ffd700;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding-top: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-xl navbar-dark ">
+    <div class="container-fluid">
+
+      <img src="../images/logo.png" alt="" class="logo">
+
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          <!-- Home -->
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+
+          <!-- Birthday Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Birthday</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../html/forhim.html">For Him</a></li>
+              <li><a class="dropdown-item" href="../html/forher.html">For Her</a></li>
+              <hr>
+              <li><a class="dropdown-item" href="../html/forson.html">For Son</a></li>
+              <li><a class="dropdown-item" href="../html/forfather.html">For Father</a></li>
+              <li><a class="dropdown-item" href="../html/forhusband.html">For Husband</a></li>
+              <li><a class="dropdown-item" href="../html/forbrother.html">For Brother</a></li>
+              <li><a class="dropdown-item" href="../html/foruncle.html">For Uncle</a></li>
+              <li><a class="dropdown-item" href="../html/fornephew.html">For Nephew</a></li>
+              <hr>
+              <li><a class="dropdown-item" href="../html/fordaughter.html">For Daughter</a></li>
+              <li><a class="dropdown-item" href="../html/formother.html">For Mother</a></li>
+              <li><a class="dropdown-item" href="../html/forwife.html">For Wife</a></li>
+              <li><a class="dropdown-item" href="../html/forsister.html">For Sister</a></li>
+              <li><a class="dropdown-item" href="../html/foraunt.html">For Aunt</a></li>
+              <li><a class="dropdown-item" href="../html/forniece.html">For Niece</a></li>
+            </ul>
+          </li>
+          <!-- Occasions Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Occasions</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../html/anniversery.html">Anniversary</a></li>
+              <li><a class="dropdown-item" href="../html/motherday.html">Mother's day</a></li>
+              <li><a class="dropdown-item" href="../html/valentineday.html">Valentine's day</a></li>
+            </ul>
+          </li>
+
+          <!-- Holidays Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Holidays</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../html/14august.html">14 August</a></li>
+              <li><a class="dropdown-item" href="../html/ramadan.html">Ramadan</a></li>
+              <li><a class="dropdown-item" href="../html/eid_ul_adha.html">Eid-ul-Azha</a></li>
+            </ul>
+          </li>
+
+          <!-- Brands Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Brands</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../html/archies.html">Archies</a></li>
+              <li><a class="dropdown-item" href="../html/hallmark.html">Hallmark</a></li>
+              <li><a class="dropdown-item" href="../html/papyrus.html">Papyrus</a></li>
+            </ul>
+          </li>
+
+          <!-- Contact -->
+          <li class="nav-item">
+            <a class="nav-link" href="../html/contact.html">Contact Us</a>
+          </li>
+
+          <!-- About-->
+          <li class="nav-item">
+            <a class="nav-link" href="../html/about-us.html">About Us</a>
+          </li>
+        </ul>
+        <!-- Search Bar -->
+        <form class="d-flex" id="searchForm">
+          <input class="search-bar" type="search" id="searchInput" required placeholder="Search Cards">
+          <button class="search-btn" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  </nav>
+  <header class="page-header text-center">
+    <h1 class="text-danger p-4 fw-bold text-center">Ramadan</h1>
+  </header>
+  <br>
+  <div id="card-page">
+    <!-- Row 1 -->
+    <h2 class="text-danger pb-2 text-center">RAMADAN KAREEM GREETINGS</h2>
+    <div class="card-row">
+      <div class="carousel-wrapper">
+        <div class="card-carousel"></div>
+        <button class="carousel-btn prev-btn">&lt;</button>
+        <button class="carousel-btn next-btn">&gt;</button>
+      </div>
+    </div>
+    <!-- Row 2 -->
+    <h2 class="text-danger pb-2 text-center">BLEESSING OF THE HAJJ</h2>
+    <div class="card-row">
+      <div class="carousel-wrapper">
+        <div class="card-carousel"></div>
+        <button class="carousel-btn prev-btn">&lt;</button>
+        <button class="carousel-btn next-btn">&gt;</button>
+      </div>
+    </div>
+    <!-- Row 3 -->
+    <h2 class="text-danger pb-2 text-center">IFTAR & SUHOOR WISHES</h2>
+    <div class="card-row">
+      <div class="carousel-wrapper">
+        <div class="card-carousel"></div>
+        <button class="carousel-btn prev-btn">&lt;</button>
+        <button class="carousel-btn next-btn">&gt;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-overlay">
+    <span class="close-modal">&times;</span>
+    <div class="modal-content">
+      <img src="" alt="Card Image">
+      <p class="modal-description"></p>
+      <p class="modal-price"></p>
+      <div class="input-group">
+        <label for="user-message">Your Message:</label>
+        <textarea id="user-message" rows="3" placeholder="Write your personal message for the card here..."></textarea>
+      </div>
+      <button class="order-btn">Order Now</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <!-- top categories -->
+        <div class="col-md-3 mb-4">
+          <h5>Top Categories</h5>
+          <a href="../html/forhim.html">Birthday Cards For Him</a>
+          <a href="../html/forher.html">Birthday Cards For Her</a>
+          <a href="../html/valentineday.html">Valentine's day Cards</a>
+          <a href="../html/anniversery.html">Anniversary Cards</a>
+          <a href="../html/ramadan.html">Ramadan Cards</a>
+        </div>
+        <!-- Quick Links -->
+        <div class="col-md-3 mb-4">
+          <h5>Quick Links</h5>
+          <a href="../index.html">Home</a>
+          <a href="../html/collection.html">Explore Collection</a>
+          <a href="../html/about-us.html">About Us</a>
+          <a href="../html/contact.html">Contact</a>
+        </div>
+
+        <!-- Customer Support -->
+        <div class="col-md-3 mb-4">
+          <h5>Customer Support</h5>
+          <a href="../html/faq.html">FAQs</a>
+          <a href="../html/delivery.html">Shipping & Delivery</a>
+          <a href="../html/policies.html">policies</a>
+        </div>
+
+        <!-- Social Media -->
+        <div class="col-md-3 mb-4">
+          <h5>Follow Us</h5>
+          <p>Stay connected with us on social media:</p>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="bi bi-twitter"></i></a>
+            <a href="https://twitter.com/" target="_blank"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.youtube.com/" target="_blank"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom -->
+      <div class="footer-bottom">
+        © 2025 Red Card | Designed with ❤️ for every occasion
+      </div>
+    </div>
+  </footer>
+  <!-- JavaScript Files -->
+  <script src="../bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+
+    // ✅ Smart Base Path Detector
+    let basePath = "";
+
+    // Agar current page html folder ke andar hai
+    if (window.location.pathname.includes("/html/")) {
+      basePath = "./"; // same folder
+    } else {
+      basePath = "html/"; // home page se html folder ke andar
+    }
+
+    // ✅ Page Mapping
+    const searchPages = {
+      "birthday": "forhim.html",
+      "for him": "forhim.html",
+      "for her": "forher.html",
+      "father": "forfather.html",
+      "son": "forson.html",
+      "husband": "forhusband.html",
+      "brother": "forbrother.html",
+      "uncle": "foruncle.html",
+      "nephew": "fornephew.html",
+      "daughter": "fordaughter.html",
+      "mother": "formother.html",
+      "wife": "forwife.html",
+      "sister": "forsister.html",
+      "aunt": "foraunt.html",
+      "niece": "forniece.html",
+      "anniversary": "anniversery.html",
+      "mothers day": "motherday.html",
+      "valentine day": "valentineday.html",
+      "eid": "eid.html",
+      "ramadan": "ramadan.html",
+      "14 august": "14august.html",
+      "about": "about-us.html",
+      "contact": "contact.html",
+      "archies": "archies.html",
+      "hallmark": "hallmark.html",
+      "papyrus": "papyrus.html",
+      "faq": "faq.html",                // ✅ added FAQ page
+      "policies": "policies.html" // ✅ added policies page
+    };
+
+    // ✅ Universal Search Function
+    function handleSearch(formId, inputId) {
+      const form = document.getElementById(formId);
+      if (!form) return;
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const query = document.getElementById(inputId).value.toLowerCase().trim();
+
+        if (searchPages[query]) {
+          // ✅ auto redirect using detected basePath
+          window.location.href = basePath + searchPages[query];
+        } else {
+          alert("❌ No results found! Please use valid keywords related to our website.");
+        }
+      });
+    }
+    // ✅ Run for both forms
+    handleSearch("searchForm1", "searchInput1");
+    handleSearch("searchForm", "searchInput");
+    document.addEventListener('DOMContentLoaded', () => {
+
+      const cardData = [
+        // Row 1 Data: Ramadan Kareem Greetings
+        [
+          { img: '../images/ramazan/Row 1/image1.jpg', price: 'PKR 450', desc: 'Ramadan Kareem! Wishing you a blessed and prosperous month.' },
+          { img: '../images/ramazan/Row 1/image2.jpg', price: 'PKR 500', desc: 'An elegant card with beautiful lanterns to light up their Ramadan.' },
+          { img: '../images/ramazan/Row 1/image3.jpg', price: 'PKR 480', desc: 'May this holy month bring you peace and tranquility. Ramadan Mubarak.' },
+          { img: '../images/ramazan/Row 1/image4.jpg', price: 'PKR 470', desc: 'Featuring a stunning mosque silhouette against a starry night.' },
+          { img: '../images/ramazan/Row 1/image5.jpg', price: 'PKR 460', desc: 'Simple, modern, and elegant wishes for a Happy Ramadan.' },
+          { img: '../images/ramazan/Row 1/image6.jpg', price: 'PKR 520', desc: 'Golden calligraphy to send your warm Ramadan greetings.' }
+        ],
+        // Row 2 Data: Blessings of the Holy Month
+        [
+          { img: '../images/ramazan/Row 2/image1.jpg', price: 'PKR 550', desc: 'May your prayers be answered this Ramadan. Sending blessings.' },
+          { img: '../images/ramazan/Row 2/image2.jpg', price: 'PKR 530', desc: 'A card to reflect on the peace and blessings of this sacred month.' },
+          { img: '../images/ramazan/Row 2/image3.jpg', price: 'PKR 580', desc: 'Wishing you a month of fasting, prayer, and spiritual growth.' },
+          { img: '../images/ramazan/Row 2/image4.png', price: 'PKR 540', desc: 'May the crescent moon of Ramadan brighten your path towards enlightenment.' },
+          { img: '../images/ramazan/Row 2/image5.png', price: 'PKR 560', desc: '"Fasting is a shield." - A beautiful reminder on a card.' },
+          { img: '../images/ramazan/Row 2/image6.jpg', price: 'PKR 570', desc: 'Sending thoughts of peace and courage during the holy month.' }
+        ],
+        // Row 3 Data: Iftar & Suhoor Wishes
+        [
+          { img: '../images/ramazan/Row 3/image1.jpg', price: 'PKR 500', desc: 'Thinking of you at Iftar. Hope you have a delicious meal!' },
+          { img: '../images/ramazan/Row 3/image2.jpg', price: 'PKR 520', desc: 'Wishing you blessed moments during Suhoor and Iftar.' },
+          { img: '../images/ramazan/Row 3/image3.jpg', price: 'PKR 550', desc: 'A beautiful card featuring traditional dates and water.' },
+          { img: '../images/ramazan/Row 3/image4.jpg', price: 'PKR 490', desc: 'Let\'s share the blessings of Iftar together, even from afar.' },
+          { img: '../images/ramazan/Row 3/image5.jpg', price: 'PKR 530', desc: 'May your fasts be easy and your Iftars be plentiful.' },
+          { img: '../images/ramazan/Row 3/image6.jpg', price: 'PKR 510', desc: 'A warm invitation to break fast. Iftar Mubarak!' }
+        ]
+      ];
+
+      const cardPage = document.getElementById('card-page');
+      const modalOverlay = document.querySelector('.modal-overlay');
+      const modalContent = document.querySelector('.modal-content');
+      const modalImg = modalOverlay.querySelector('img');
+      const modalDesc = modalOverlay.querySelector('.modal-description');
+      const modalPrice = modalOverlay.querySelector('.modal-price');
+      const closeModal = document.querySelector('.close-modal');
+      const orderBtn = document.querySelector('.order-btn');
+      const userMessage = document.getElementById('user-message');
+
+      function showModal(data) {
+        modalImg.src = data.img;
+        modalDesc.textContent = data.desc;
+        modalPrice.textContent = data.price;
+        modalOverlay.style.display = 'flex';
+        setTimeout(() => {
+          modalOverlay.style.opacity = '1';
+          modalContent.style.transform = 'scale(1)';
+          cardPage.style.filter = 'blur(5px)';
+        }, 10);
+      }
+      function hideModal() {
+        userMessage.value = "";
+        modalOverlay.style.opacity = '0';
+        modalContent.style.transform = 'scale(0.9)';
+        cardPage.style.filter = 'none';
+        setTimeout(() => {
+          modalOverlay.style.display = 'none';
+        }, 300);
+      }
+      closeModal.addEventListener('click', hideModal);
+      modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) hideModal(); });
+
+      orderBtn.addEventListener('click', () => {
+        const message = userMessage.value.trim();
+        const price = modalPrice.textContent;
+        if (message === "") {
+          Swal.fire({ icon: 'warning', title: 'Oops...', text: 'Please write a message before placing the order!', confirmButtonColor: '#e91e63' });
+          return;
+        }
+        Swal.fire({
+          icon: 'success', title: 'Order Placed!',
+          html: `Thank you for your order.<br><br><b>Price:</b> ${price}<br><b>Your Message:</b> "${message}"`,
+          confirmButtonText: 'Great!', confirmButtonColor: '#4CAF50'
+        }).then(() => { hideModal(); });
+      });
+
+      let carouselsToUpdate = [];
+
+      function setupCarousel(row, rowIndex) {
+        const wrapper = row.querySelector('.carousel-wrapper');
+        const carousel = row.querySelector('.card-carousel');
+        const prevBtn = row.querySelector('.prev-btn');
+        const nextBtn = row.querySelector('.next-btn');
+        carousel.innerHTML = '';
+        cardData[rowIndex].forEach(data => {
+          const card = document.createElement('div');
+          card.classList.add('card');
+          card.innerHTML = `<img src="${data.img}" alt="Card Image"><p class="card-price">${data.price}</p>`;
+          card.addEventListener('click', () => showModal(data));
+          carousel.appendChild(card);
+        });
+        const originalCards = Array.from(carousel.children);
+        if (originalCards.length === 0) return;
+        let cardsToScroll, cloneCount;
+        if (window.innerWidth <= 576) { cardsToScroll = 1; cloneCount = 2; }
+        else if (window.innerWidth <= 992) { cardsToScroll = 2; cloneCount = 2; }
+        else { cardsToScroll = 3; cloneCount = 3; }
+        let currentIndex = cloneCount;
+        let autoScrollInterval;
+        if (originalCards.length > cloneCount) {
+          for (let i = 0; i < cloneCount; i++) {
+            const startClone = originalCards[i].cloneNode(true);
+            carousel.appendChild(startClone);
+            const endClone = originalCards[originalCards.length - 1 - i].cloneNode(true);
+            carousel.insertBefore(endClone, carousel.firstChild);
+          }
+        }
+        const cardWidth = carousel.querySelector('.card:not(.clone)').offsetWidth + 20;
+        const updatePosition = (hasTransition = true) => {
+          carousel.style.transition = hasTransition ? 'transform 0.5s ease-in-out' : 'none';
+          carousel.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        };
+        const moveTo = (index) => { currentIndex = index; updatePosition(); };
+        carousel.addEventListener('transitionend', () => {
+          if (currentIndex >= originalCards.length + cloneCount) { currentIndex = cloneCount; updatePosition(false); }
+          if (currentIndex < cloneCount) { currentIndex = originalCards.length + cloneCount - cardsToScroll; updatePosition(false); }
+        });
+        const advanceCarousel = () => moveTo(currentIndex + cardsToScroll);
+        const startAutoScroll = () => { clearInterval(autoScrollInterval); autoScrollInterval = setInterval(advanceCarousel, 3000); };
+        const stopAutoScroll = () => clearInterval(autoScrollInterval);
+        nextBtn.onclick = () => { stopAutoScroll(); moveTo(currentIndex + cardsToScroll); startAutoScroll(); };
+        prevBtn.onclick = () => { stopAutoScroll(); moveTo(currentIndex - cardsToScroll); startAutoScroll(); };
+        wrapper.onmouseenter = stopAutoScroll;
+        wrapper.onmouseleave = startAutoScroll;
+        updatePosition(false);
+        startAutoScroll();
+        return { start: startAutoScroll, stop: stopAutoScroll };
+      }
+
+      document.querySelectorAll('.card-row').forEach((row, rowIndex) => {
+        carouselsToUpdate.push({ row, rowIndex });
+      });
+      function initializeAllCarousels() {
+        carouselsToUpdate.forEach(item => {
+          const { row, rowIndex } = item;
+          const controls = setupCarousel(row, rowIndex);
+          item.controls = controls;
+        });
+      }
+      initializeAllCarousels();
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        carouselsToUpdate.forEach(item => item.controls.stop());
+        resizeTimer = setTimeout(initializeAllCarousels, 250);
+      });
+    });
+  </script>
+</body>
+
+</html>

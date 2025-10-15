@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anniversary Cards</title>
+  <!-- Bootstrap CSS -->
+  <link href="../bootstrap-5.3.8-dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-xl navbar-dark ">
+    <div class="container-fluid">
+
+      <img src="../images/logo.png" alt="" class="logo">
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          <!-- Home -->
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+
+          <!-- Birthday Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Birthday</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../html/forhim.html">For Him</a></li>
+              <li><a class="dropdown-item" href="../html/forher.html">For Her</a></li>
+              <hr>
+              <li><a class="dropdown-item" href="../html/forson.html">For Son</a></li>
+              <li><a class="dropdown-item" href="../html/forfather.html">For Father</a></li>
+              <li><a class="dropdown-item" href="../html/forhusband.html">For Husband</a></li>
+              <li><a class="dropdown-item" href="../html/forbrother.html">For Brother</a></li>
+              <li><a class="dropdown-item" href="../html/foruncle.html">For Uncle</a></li>
+              <li><a class="dropdown-item" href="../html/fornephew.html">For Nephew</a></li>
+              <hr>
+              <li><a class="dropdown-item" href="../html/fordaughter.html">For Daughter</a></li>
+              <li><a class="dropdown-item" href="../html/formother.html">For Mother</a></li>
+              <li><a class="dropdown-item" href="../html/forwife.html">For Wife</a></li>
+              <li><a class="dropdown-item" href="../html/forsister.html">For Sister</a></li>
+              <li><a class="dropdown-item" href="../html/foraunt.html">For Aunt</a></li>
+              <li><a class="dropdown-item" href="../html/forniece.html">For Niece</a></li>
+            </ul>
+          </li>
+          <!-- Occasions Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Occasions</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../html/anniversery.html">Anniversary</a></li>
+              <li><a class="dropdown-item" href="../html/motherday.html">Mother's day</a></li>
+              <li><a class="dropdown-item" href="../html/valentineday.html">Valentine's day</a></li>
+            </ul>
+          </li>
+
+          <!-- Holidays Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Holidays</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../html/14august.html">14 August</a></li>
+              <li><a class="dropdown-item" href="../html/ramadan.html">Ramadan</a></li>
+              <li><a class="dropdown-item" href="../html/eid_ul_adha.html">Eid-ul-Azha</a></li>
+            </ul>
+          </li>
+
+          <!-- Brands Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Brands</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../html/archies.html">Archies</a></li>
+              <li><a class="dropdown-item" href="../html/hallmark.html">Hallmark</a></li>
+              <li><a class="dropdown-item" href="../html/papyrus.html">Papyrus</a></li>
+            </ul>
+          </li>
+
+
+          <!-- Contact -->
+          <li class="nav-item">
+            <a class="nav-link" href="../html/contact.html">Contact Us</a>
+          </li>
+
+          <!-- About-->
+          <li class="nav-item">
+            <a class="nav-link" href="../html/about-us.html">About Us</a>
+          </li>
+        </ul>
+        <!-- Search Bar -->
+        <form class="d-flex" id="searchForm">
+          <input class="search-bar" type="search" id="searchInput" required placeholder="Search Cards">
+          <button class="search-btn" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <section class="content-area container-fluid">
+    <div class="row">
+
+      <!-- Cards Section -->
+      <div class="col-12">
+        <!-- Section Heading -->
+        <div class="mb-4 text-center">
+          <h2 class="text-danger pb-2">HAPPY ANNIVERSARY CARDS</h2>
+          <p class="text-muted">Find the perfect Anniversary card for your brother with love and style.</p>
+        </div>
+
+        <div class="row g-5 ms-5 me-5">
+          <!-- Card 1 -->
+          <div class="col-12 col-sm-6 col-md-4">
+            <div class="card h-100 text-center p-3 shadow-sm">
+              <img src="../images/ann1.jpg" class="card-img-top" alt="" style="height: 270px;" data-price="Rs. 400"
+                data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this)">
+              <div class="card-body">
+                <p class="fw-bold text-danger">Price: Rs. 300</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="col-12 col-sm-6 col-md-4">
+            <div class="card h-100 text-center p-3 shadow-sm">
+              <img src="../images/ann2.jpg" class="card-img-top" alt="" style="height: 270px;" data-price="Rs. 250"
+                data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this)">
+              <div class="card-body">
+                <p class="fw-bold text-danger">Price: Rs. 250</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="col-12 col-sm-6 col-md-4">
+            <div class="card h-100 text-center p-3 shadow-sm">
+              <img src="../images/ann4.jpg" class="card-img-top" alt="" style="height: 270px;" data-price="Rs. 200"
+                data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this)">
+              <div class="card-body">
+                <p class="fw-bold text-danger">Price: Rs. 200</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="col-12 col-sm-6 col-md-4">
+            <div class="card h-100 text-center p-3 shadow-sm">
+              <img src="../images/ann5.jpg" class="card-img-top" alt="" style="height: 270px;" data-price="Rs. 320"
+                data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this)">
+              <div class="card-body">
+                <p class="fw-bold text-danger">Price: Rs. 320</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="col-12 col-sm-6 col-md-4">
+            <div class="card h-100 text-center p-3 shadow-sm">
+              <img src="../images/ann6.jpg" class="card-img-top" alt="" style="height: 270px;" data-price="Rs. 180"
+                data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this)">
+              <div class="card-body">
+                <p class="fw-bold text-danger">Price: Rs. 180</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="col-12 col-sm-6 col-md-4">
+            <div class="card h-100 text-center p-3 shadow-sm">
+              <img src="../images/ann 7.jpg" class="card-img-top" alt="" style="height: 270px;" data-price="Rs. 150"
+                data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this)">
+              <div class="card-body">
+                <p class="fw-bold text-danger">Price: Rs. 150</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 7 -->
+          <div class="col-12 col-sm-6 col-md-4">
+            <div class="card h-100 text-center p-3 shadow-sm">
+              <img src="../images/ann9.jpg" class="card-img-top" alt="" style="height: 270px;" data-price="Rs. 200"
+                data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this)">
+              <div class="card-body">
+                <p class="fw-bold text-danger">Price: Rs. 200</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 8 -->
+          <div class="col-12 col-sm-6 col-md-4">
+            <div class="card h-100 text-center p-3 shadow-sm">
+              <img src="../images/ann 10.png" class="card-img-top" alt="" style="height: 270px;" data-price="Rs. 350"
+                data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this)">
+              <div class="card-body">
+                <p class="fw-bold text-danger">Price: Rs. 350</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 9 -->
+          <div class="col-12 col-sm-6 col-md-4">
+            <div class="card h-100 text-center p-3 shadow-sm">
+              <img src="../images/ann 11.jpg" class="card-img-top" alt="" style="height: 270px;" data-price="Rs. 400"
+                data-bs-toggle="modal" data-bs-target="#imageModal" onclick="showImage(this)">
+              <div class="card-body">
+                <p class="fw-bold text-danger">Price: Rs. 400</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🔹 Modal -->
+  <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-light p-3 rounded-4 shadow-lg">
+
+        <!-- Modal Header -->
+        <div class="modal-header border-0">
+          <h5 class="modal-title fw-bold text-danger">
+            <i class="bi bi-card-heading me-2"></i> Product Details
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <div class="row g-4 align-items-center">
+
+            <!-- Left: Product Image -->
+            <div class="col-md-6 text-center">
+              <img id="modalImage" class="img-fluid rounded shadow-sm border" src="" alt="Selected Image">
+            </div>
+
+            <!-- Right: Product Info -->
+            <div class="col-md-6">
+              <h4 id="modalTitle" class="text-danger">ANNIVERSARY CARD</h4>
+              <p class="text-muted mb-1">SKU: 123456789</p>
+              <p id="modalDescription" class="mb-3">
+                Beautiful Anniversary card for your loved ones. Perfect for adding joy
+                and special feelings on their big day.
+              </p>
+
+              <!-- Price -->
+              <h5 id="modalPrice" class="text-danger fw-bold mb-4">Rs. 0</h5>
+
+              <!-- Buy Now Button -->
+              <a href="buynow.html" class="btn btn-circle"> Buy Now
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <!-- top categories -->
+        <div class="col-md-3 mb-4">
+          <h5>Top Categories</h5>
+          <a href="../html/forhim.html">Birthday Cards For Him</a>
+          <a href="../html/forher.html">Birthday Cards For Her</a>
+          <a href="../html/valentineday.html">Valentine's day Cards</a>
+          <a href="../html/anniversery.html">Anniversary Cards</a>
+          <a href="../html/ramadan.html">Ramadan Cards</a>
+        </div>
+        <!-- Quick Links -->
+        <div class="col-md-3 mb-4">
+          <h5>Quick Links</h5>
+          <a href="../index.html">Home</a>
+          <a href="../html/collection.html">Explore Collection</a>
+          <a href="../html/about-us.html">About Us</a>
+          <a href="../html/contact.html">Contact</a>
+        </div>
+
+        <!-- Customer Support -->
+        <div class="col-md-3 mb-4">
+          <h5>Customer Support</h5>
+          <a href="../html/faq.html">FAQs</a>
+          <a href="../html/delivery.html">Shipping & Delivery</a>
+          <a href="../html/policies.html">policies</a>
+        </div>
+
+        <!-- Social Media -->
+        <div class="col-md-3 mb-4">
+          <h5>Follow Us</h5>
+          <p>Stay connected with us on social media:</p>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="bi bi-twitter"></i></a>
+            <a href="https://twitter.com/" target="_blank"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.youtube.com/" target="_blank"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom -->
+      <div class="footer-bottom">
+        © 2025 Red Card | Designed with ❤️ for every occasion
+      </div>
+    </div>
+  </footer>
+  <script src="../js/script.js"></script>
+  <script src="../bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

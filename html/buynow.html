@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buynow</title>
+  <!-- Bootstrap CSS -->
+  <link href="../bootstrap-5.3.8-dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <!-- Bootstrap Icons CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-xl navbar-dark ">
+    <div class="container-fluid">
+      <!-- Logo -->
+      <img src="../images/logo.png" alt="" class="logo">
+
+      <!-- Toggle for Mobile -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Menu Items -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          <!-- Home -->
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+
+          <!-- Birthday Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Birthday</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../html/forhim.html">For Him</a></li>
+              <li><a class="dropdown-item" href="../html/forher.html">For Her</a></li>
+              <hr>
+              <li><a class="dropdown-item" href="../html/forson.html">For Son</a></li>
+              <li><a class="dropdown-item" href="../html/forfather.html">For Father</a></li>
+              <li><a class="dropdown-item" href="../html/forhusband.html">For Husband</a></li>
+              <li><a class="dropdown-item" href="../html/forbrother.html">For Brother</a></li>
+              <li><a class="dropdown-item" href="../html/foruncle.html">For Uncle</a></li>
+              <li><a class="dropdown-item" href="../html/fornephew.html">For Nephew</a></li>
+              <hr>
+              <li><a class="dropdown-item" href="../html/fordaughter.html">For Daughter</a></li>
+              <li><a class="dropdown-item" href="../html/formother.html">For Mother</a></li>
+              <li><a class="dropdown-item" href="../html/forwife.html">For Wife</a></li>
+              <li><a class="dropdown-item" href="../html/forsister.html">For Sister</a></li>
+              <li><a class="dropdown-item" href="../html/foraunt.html">For Aunt</a></li>
+              <li><a class="dropdown-item" href="../html/forniece.html">For Niece</a></li>
+            </ul>
+          </li>
+          <!-- Occasions Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Occasions</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../html/anniversery.html">Anniversary</a></li>
+              <li><a class="dropdown-item" href="../html/motherday.html">Mother's day</a></li>
+              <li><a class="dropdown-item" href="../html/valentineday.html">Valentine's day</a></li>
+            </ul>
+          </li>
+          <!-- Holidays Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Holidays</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../html/14august.html">14 August</a></li>
+              <li><a class="dropdown-item" href="../html/ramadan.html">Ramadan</a></li>
+              <li><a class="dropdown-item" href="../html/eid_ul_adha.html">Eid-ul-Azha</a></li>
+            </ul>
+          </li>
+
+          <!-- Brands Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Brands</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="../html/archies.html">Archies</a></li>
+              <li><a class="dropdown-item" href="../html/hallmark.html">Hallmark</a></li>
+              <li><a class="dropdown-item" href="../html/papyrus.html">Papyrus</a></li>
+            </ul>
+          </li>
+
+
+          <!-- Contact -->
+          <li class="nav-item">
+            <a class="nav-link" href="../html/contact.html">Contact Us</a>
+          </li>
+
+          <!-- About-->
+          <li class="nav-item">
+            <a class="nav-link" href="../html/about-us.html">About Us</a>
+          </li>
+        </ul>
+
+        <!-- Search Bar -->
+        <form class="d-flex" id="searchForm">
+          <input class="search-bar" type="search" id="searchInput" required placeholder="Search Cards">
+          <button class="search-btn" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container d-flex justify-content-center align-items-center min-vh-100 mt-4 mb-4">
+    <div class="card shadow p-1" style=" width: 65%; height: 595px; border-radius: 15px;">
+      <h2 class="text-center text-danger mb-4 mt-2"><i class="bi bi-cart-check-fill"></i><b>Buy Now</b></h2>
+
+      <form id="orderForm">
+        <div class="row g-3">
+          <!-- Name -->
+          <div class="col-md-6">
+            <label class="form-label"><i class="bi bi-person-fill"></i> Full Name</label>
+            <input type="text" id="fullName" class="form-control" placeholder="Enter your name" required>
+            <div class="invalid-feedback">Please enter a valid name (alphabets only).</div>
+          </div>
+
+          <!-- Phone -->
+          <div class="col-md-6">
+            <label class="form-label"><i class="bi bi-telephone-fill"></i> Phone Number</label>
+            <input type="tel" id="phone" class="form-control" placeholder="03XXXXXXXXX" required>
+            <div class="invalid-feedback">Please enter a valid 11-digit phone number (e.g., 03XXXXXXXXX).</div>
+          </div>
+
+          <!-- Address -->
+          <div class="col-12">
+            <label class="form-label"><i class="bi bi-geo-alt-fill"></i> Delivery Address</label>
+            <textarea id="address" class="form-control" rows="3" placeholder="Enter complete address"
+              required></textarea>
+            <div class="invalid-feedback">Please enter a valid address (at least 10 characters).</div>
+          </div>
+
+          <!-- Payment -->
+          <div class="col-md-6">
+            <label class="form-label"><i class="bi bi-credit-card-fill"></i> Payment Method</label>
+            <select class="form-select" required>
+              <option value="">Choose Payment Method</option>
+              <option>Cash on Delivery</option>
+              <option>Bank Transfer</option>
+              <option>EasyPaisa</option>
+              <option>JazzCash</option>
+            </select>
+            <div class="invalid-feedback">Please select a payment method.</div>
+          </div>
+        </div>
+        <br>
+        <!-- Submit -->
+        <div class="mt-4 mb-3 text-center">
+          <button type="submit" class="btn-circle">Confirm Order</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="successModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center p-4">
+        <div class="modal-body">
+          <i class="bi bi-check-circle-fill"></i>
+          <h4 class="mt-3">Order Confirmed!</h4>
+          <p>Thank you for your purchase 🎉</p>
+          <button class="btn btn-success mt-2" data-bs-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <!-- top categories -->
+        <div class="col-md-3 mb-4">
+          <h5>Top Categories</h5>
+          <a href="../html/forhim.html">Birthday Cards For Him</a>
+          <a href="../html/forher.html">Birthday Cards For Her</a>
+          <a href="../html/valentineday.html">Valentine's day Cards</a>
+          <a href="../html/anniversery.html">Anniversary Cards</a>
+          <a href="../html/ramadan.html">Ramadan Cards</a>
+        </div>
+        <!-- Quick Links -->
+        <div class="col-md-3 mb-4">
+          <h5>Quick Links</h5>
+          <a href="../index.html">Home</a>
+          <a href="../html/collection.html">Explore Collection</a>
+          <a href="../html/about-us.html">About Us</a>
+          <a href="../html/contact.html">Contact</a>
+        </div>
+
+        <!-- Customer Support -->
+        <div class="col-md-3 mb-4">
+          <h5>Customer Support</h5>
+          <a href="../html/faq.html">FAQs</a>
+          <a href="../html/delivery.html">Shipping & Delivery</a>
+          <a href="../html/policies.html">policies</a>
+        </div>
+
+        <!-- Social Media -->
+        <div class="col-md-3 mb-4">
+          <h5>Follow Us</h5>
+          <p>Stay connected with us on social media:</p>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="bi bi-twitter"></i></a>
+            <a href="https://twitter.com/" target="_blank"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.youtube.com/" target="_blank"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom -->
+      <div class="footer-bottom">
+        © 2025 Red Card | Designed with ❤️ for every occasion
+      </div>
+    </div>
+  </footer>
+  <script src="../bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const orderForm = document.getElementById("orderForm");
+      const fullName = document.getElementById("fullName");
+      const phone = document.getElementById("phone");
+      const address = document.getElementById("address");
+
+      orderForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        let isValid = true;
+
+        const nameRegex = /^[A-Za-z ]+$/;
+        if (!nameRegex.test(fullName.value.trim())) {
+          fullName.classList.add("is-invalid");
+          isValid = false;
+        } else {
+          fullName.classList.remove("is-invalid");
+        }
+
+        const phoneRegex = /^03[0-9]{9}$/;
+        if (!phoneRegex.test(phone.value.trim())) {
+          phone.classList.add("is-invalid");
+          isValid = false;
+        } else {
+          phone.classList.remove("is-invalid");
+        }
+
+        const addressRegex = /^[A-Za-z0-9\s,.-]{10,}$/;
+        if (!addressRegex.test(address.value.trim())) {
+          address.classList.add("is-invalid");
+          isValid = false;
+        } else {
+          address.classList.remove("is-invalid");
+        }
+
+        // ✅ Show modal + confetti if valid
+        if (isValid) {
+          var myModal = new bootstrap.Modal(document.getElementById("successModal"));
+          myModal.show();
+          orderForm.reset();
+
+          // 🎉 Confetti Celebration Effect 🎉
+          const duration = 3 * 1000;
+          const end = Date.now() + duration;
+
+          (function frame() {
+            confetti({
+              particleCount: 7,
+              startVelocity: 25,
+              spread: 360,
+              ticks: 60,
+              origin: { x: Math.random(), y: Math.random() - 0.2 }
+            });
+            if (Date.now() < end) requestAnimationFrame(frame);
+          })();
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
